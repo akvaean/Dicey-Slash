@@ -19,7 +19,7 @@ offset_left = 4.0
 offset_top = 4.0
 offset_right = 296.0
 offset_bottom = 296.0
-text = "Pasued"
+text = "Paused"
 horizontal_alignment = 1
 
 [node name="resume" type="Button" parent="pause/pause"]

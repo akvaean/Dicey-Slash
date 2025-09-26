@@ -144,3 +144,7 @@ func _on_attack_hit(body):
 func update_hits_label():
 	if hits_label:
 		hits_label.text = str(max(hits_left, 0))
+
+
+func _on_pause_replacing_by(node: Node) -> void:
+	pass # Replace with function body.
