@@ -1,0 +1,77 @@
+[gd_scene load_steps=9 format=3 uid="uid://bl0q7418pu8vi"]
+
+[ext_resource type="Script" uid="uid://dypvb2bt3snh5" path="res://objects/diceh.gd" id="1_0rx7u"]
+[ext_resource type="Texture2D" uid="uid://c3q8pbl8hnvv8" path="res://assets/Objects/dice/diceh/dice1h.png" id="1_vtn43"]
+[ext_resource type="Texture2D" uid="uid://dpxaiuhecgf5j" path="res://assets/Objects/dice/diceh/dice2h.png" id="2_0rx7u"]
+[ext_resource type="Texture2D" uid="uid://buqtyx7ladgin" path="res://assets/Objects/dice/diceh/dice4h.png" id="4_nbkbh"]
+[ext_resource type="Texture2D" uid="uid://cxe0ij8by61xt" path="res://assets/Objects/dice/diceh/dice5h.png" id="5_l4qhq"]
+[ext_resource type="Texture2D" uid="uid://chsyqwhwi5pxq" path="res://assets/Objects/dice/diceh/dice6h.png" id="6_00f0p"]
+[ext_resource type="Texture2D" uid="uid://k171766evmjg" path="res://assets/Objects/dice/diceh/dice3ht.png" id="7_8nnqe"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_8nnqe"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_00f0p")
+}, {
+"duration": 1.0,
+"texture": ExtResource("1_vtn43")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_8nnqe")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_nbkbh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_l4qhq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_0rx7u")
+}],
+"loop": false,
+"name": &"rollh",
+"speed": 10.0
+}]
+
+[node name="diceh" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_0rx7u")
+
+[node name="dice1" type="Sprite2D" parent="."]
+position = Vector2(20, 20)
+texture = ExtResource("1_vtn43")
+
+[node name="dice2" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(20, 20)
+texture = ExtResource("2_0rx7u")
+
+[node name="dice3" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(20, 20)
+texture = ExtResource("7_8nnqe")
+
+[node name="dice4" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(20, 20)
+texture = ExtResource("4_nbkbh")
+
+[node name="dice5" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(20, 20)
+texture = ExtResource("5_l4qhq")
+
+[node name="dice6" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(20, 20)
+texture = ExtResource("6_00f0p")
+
+[node name="animated_dice" type="AnimatedSprite2D" parent="."]
+visible = false
+position = Vector2(20, 20)
+sprite_frames = SubResource("SpriteFrames_8nnqe")
+animation = &"rollh"

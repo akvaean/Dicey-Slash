@@ -1,0 +1,46 @@
+[gd_scene load_steps=10 format=3 uid="uid://doa0g2ox1i6iu"]
+
+[ext_resource type="Script" uid="uid://mxfrll7000ny" path="res://scenes/gamemanager.gd" id="1_8cp1g"]
+[ext_resource type="Script" uid="uid://bdyk03qptvyye" path="res://scenes/spawner.gd" id="2_opddj"]
+[ext_resource type="PackedScene" uid="uid://rwjsjx1mnxo4" path="res://enemies/enemy.tscn" id="3_7lrkp"]
+[ext_resource type="Script" uid="uid://b0d16x6ihasc7" path="res://scenes/spawner_2.gd" id="4_rc1hy"]
+[ext_resource type="PackedScene" uid="uid://bi8cj5wnbf13r" path="res://enemies/enemy_2.tscn" id="5_ppkth"]
+[ext_resource type="PackedScene" uid="uid://c3elmsp6tjg2o" path="res://scenes/coin.tscn" id="6_7lrkp"]
+[ext_resource type="Script" uid="uid://hdwuhic67s4m" path="res://scenes/heal.gd" id="7_ppkth"]
+[ext_resource type="Texture2D" uid="uid://cakpd8b6s7lll" path="res://assets/Objects/skill1.png" id="8_gwg73"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_l8mck"]
+radius = 4.0
+
+[node name="gamemanager" type="Node"]
+script = ExtResource("1_8cp1g")
+
+[node name="spawner" type="Node2D" parent="." node_paths=PackedStringArray("spawn_point")]
+script = ExtResource("2_opddj")
+enemy_scene = ExtResource("3_7lrkp")
+spawn_point = NodePath("Marker2D")
+
+[node name="Marker2D" type="Marker2D" parent="spawner"]
+position = Vector2(-446, 108)
+
+[node name="spawner2" type="Node2D" parent="spawner" node_paths=PackedStringArray("spawn_point")]
+script = ExtResource("4_rc1hy")
+enemy_scene = ExtResource("5_ppkth")
+spawn_point = NodePath("Marker2D")
+
+[node name="Marker2D" type="Marker2D" parent="spawner/spawner2"]
+position = Vector2(423, -171)
+
+[node name="heal" type="Area2D" parent="."]
+script = ExtResource("7_ppkth")
+
+[node name="Sprite2D" type="Sprite2D" parent="heal"]
+position = Vector2(39.75, 12.999996)
+scale = Vector2(0.16015625, 0.15625006)
+texture = ExtResource("8_gwg73")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="heal"]
+position = Vector2(40, 13)
+shape = SubResource("CircleShape2D_l8mck")
+
+[node name="coin" parent="." instance=ExtResource("6_7lrkp")]

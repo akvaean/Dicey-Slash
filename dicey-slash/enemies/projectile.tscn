@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://coy7lp1jxbtv2"]
+
+[ext_resource type="Script" uid="uid://hx5o8lttnv6m" path="res://enemies/projectile.gd" id="1_q3m7n"]
+[ext_resource type="Texture2D" uid="uid://dayovf0lg44q6" path="res://assets/Objects/Egg_item.png" id="2_softn"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_o6xl0"]
+size = Vector2(14, 14)
+
+[node name="projectile" type="Area2D"]
+script = ExtResource("1_q3m7n")
+damage = 5
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_softn")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_o6xl0")

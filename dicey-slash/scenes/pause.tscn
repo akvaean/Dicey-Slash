@@ -1,0 +1,44 @@
+[gd_scene load_steps=2 format=3 uid="uid://cw1xilcdu8wy2"]
+
+[ext_resource type="Script" uid="uid://bxtkyo4bpqjga" path="res://scenes/pause.gd" id="1_f1d2v"]
+
+[node name="pause" type="Button"]
+offset_left = 12.0
+offset_top = 4.0
+offset_right = 36.0
+offset_bottom = 35.0
+text = "II"
+script = ExtResource("1_f1d2v")
+
+[node name="pause" type="PopupPanel" parent="."]
+oversampling_override = 1.0
+size = Vector2i(300, 300)
+
+[node name="pause" type="Label" parent="pause"]
+offset_left = 4.0
+offset_top = 4.0
+offset_right = 296.0
+offset_bottom = 296.0
+text = "Pasued"
+horizontal_alignment = 1
+
+[node name="resume" type="Button" parent="pause/pause"]
+layout_mode = 0
+offset_left = 108.0
+offset_top = 90.0
+offset_right = 178.0
+offset_bottom = 121.0
+text = "Resume
+"
+
+[node name="quit" type="Button" parent="pause/pause"]
+layout_mode = 0
+offset_left = 109.0
+offset_top = 138.0
+offset_right = 179.0
+offset_bottom = 169.0
+text = "Quit"
+
+[connection signal="pressed" from="." to="." method="_on_pressed"]
+[connection signal="pressed" from="pause/pause/resume" to="." method="_on_resume_pressed"]
+[connection signal="pressed" from="pause/pause/quit" to="." method="_on_quit_pressed"]

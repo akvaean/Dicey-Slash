@@ -1,0 +1,51 @@
+[gd_scene load_steps=2 format=3 uid="uid://bxtmhbigbtbtm"]
+
+[ext_resource type="Script" uid="uid://c4oa75poi2kea" path="res://scenes/end.gd" id="1_mwn6m"]
+
+[node name="End" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_mwn6m")
+
+[node name="name" type="Label" parent="."]
+layout_mode = 0
+offset_left = -271.0
+offset_top = -115.0
+offset_right = 272.0
+offset_bottom = 22.0
+theme_override_font_sizes/font_size = 50
+text = "Game Over"
+horizontal_alignment = 1
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(3, 3)
+
+[node name="restart" type="Button" parent="."]
+layout_mode = 0
+offset_left = -32.0
+offset_right = 33.0
+offset_bottom = 31.0
+text = "Restart"
+
+[node name="quit" type="Button" parent="."]
+layout_mode = 0
+offset_left = -21.0
+offset_top = 38.0
+offset_right = 21.0
+offset_bottom = 69.0
+text = "Quit"
+
+[node name="coins" type="Label" parent="."]
+layout_mode = 0
+offset_left = -73.0
+offset_top = -42.0
+offset_right = 75.0
+offset_bottom = -19.0
+text = "Coins collected - 00"
+
+[connection signal="pressed" from="restart" to="." method="_on_restart_pressed"]
+[connection signal="pressed" from="quit" to="." method="_on_quit_pressed"]

@@ -1,0 +1,38 @@
+[gd_scene load_steps=8 format=3 uid="uid://doa0g2ox1i6iu"]
+
+[ext_resource type="Script" uid="uid://mxfrll7000ny" path="res://scenes/gamemanager.gd" id="1_8cp1g"]
+[ext_resource type="Script" uid="uid://bdyk03qptvyye" path="res://enemies/spawner.gd" id="2_opddj"]
+[ext_resource type="PackedScene" uid="uid://rwjsjx1mnxo4" path="res://enemies/enemy.tscn" id="3_7lrkp"]
+[ext_resource type="Script" uid="uid://b0d16x6ihasc7" path="res://enemies/spawner_2.gd" id="4_rc1hy"]
+[ext_resource type="PackedScene" uid="uid://bi8cj5wnbf13r" path="res://enemies/enemy_2.tscn" id="5_ppkth"]
+[ext_resource type="PackedScene" uid="uid://c3elmsp6tjg2o" path="res://objects/coin.tscn" id="6_7lrkp"]
+[ext_resource type="PackedScene" uid="uid://csjjxi71ljbo3" path="res://objects/heal.tscn" id="6_rc1hy"]
+
+[node name="gamemanager" type="Node"]
+script = ExtResource("1_8cp1g")
+
+[node name="spawner" type="Node2D" parent="." node_paths=PackedStringArray("spawn_point")]
+script = ExtResource("2_opddj")
+enemy_scene = ExtResource("5_ppkth")
+spawn_point = NodePath("Marker2D")
+base_enemy_count = 2
+enemy_increase_per_wave = 1
+
+[node name="Marker2D" type="Marker2D" parent="spawner"]
+position = Vector2(-7, 155)
+
+[node name="spawner2" type="Node2D" parent="spawner" node_paths=PackedStringArray("spawn_point")]
+script = ExtResource("4_rc1hy")
+enemy_scene = ExtResource("3_7lrkp")
+spawn_point = NodePath("Marker2D")
+base_enemy_count = 1
+enemy_increase_per_wave = 1
+
+[node name="Marker2D" type="Marker2D" parent="spawner/spawner2"]
+position = Vector2(423, -171)
+
+[node name="heal" parent="." instance=ExtResource("6_rc1hy")]
+position = Vector2(-750, -135)
+
+[node name="coin" parent="." instance=ExtResource("6_7lrkp")]
+position = Vector2(-695, -126)

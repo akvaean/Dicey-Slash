@@ -1,0 +1,49 @@
+[gd_scene load_steps=3 format=3 uid="uid://d384fcq1ag3rf"]
+
+[ext_resource type="Script" uid="uid://c7uh8wv7xl8jd" path="res://scenes/home.gd" id="1_krot7"]
+[ext_resource type="Texture2D" uid="uid://d2sv5rlc2o8fj" path="res://assets/Tilesets/bg.jpg" id="2_u4wd2"]
+
+[node name="Home" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_krot7")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(3, 3)
+
+[node name="play" type="Button" parent="."]
+layout_mode = 0
+offset_left = -31.0
+offset_right = 31.0
+offset_bottom = 31.0
+text = "Play"
+
+[node name="settings" type="Button" parent="."]
+layout_mode = 0
+offset_left = -35.0
+offset_top = 39.0
+offset_right = 35.0
+offset_bottom = 70.0
+text = "Settings"
+
+[node name="bg" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(-2.4080276e-05, -3.8146973e-06)
+scale = Vector2(0.33281246, 0.3333333)
+texture = ExtResource("2_u4wd2")
+
+[node name="Studios" type="Label" parent="."]
+layout_mode = 0
+offset_left = 171.0
+offset_top = -120.0
+offset_right = 212.0
+offset_bottom = -106.0
+theme_override_colors/font_color = Color(0.26804903, 0.47809726, 7.70092e-07, 1)
+theme_override_font_sizes/font_size = 10
+text = "akvaean"
+
+[connection signal="pressed" from="play" to="." method="_on_play_pressed"]
